@@ -1,0 +1,26 @@
+#info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 40px;
+}
+
+#info h1{
+    font-size: 60px;
+}
+
+#info p{
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 700px){
+    #info h1{
+        font-size: 40px;
+    }
+    #info p{
+        font-size: 16px;
+    }
+}

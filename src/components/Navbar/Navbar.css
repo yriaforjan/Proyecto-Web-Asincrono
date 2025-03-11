@@ -1,0 +1,89 @@
+nav{
+    width: 115px;
+    min-height: 85vh;
+    border-right: 1px solid var(--primary-dark);
+    margin-right: 20px;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 350px;
+    position: fixed;
+    top: 15vh;
+    z-index: 2;
+    background-color: var(--bg-dark);
+}
+
+.light nav{
+    border-right: 1px solid var(--primary-light);
+    background-color: var(--bg-light);
+}
+
+nav > ul{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 60px;
+}
+
+nav img{
+    height: 25px;
+    width: auto;
+    filter: invert(90%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.light nav img{
+    filter: invert(0%);
+}
+
+nav img:hover{
+    transform: scale(1.2);
+}
+
+nav button{
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 25px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav button:hover{
+    color: var(--highlight);
+}
+
+@media (max-width: 700px){
+    nav{
+        width: 100%;
+        min-height: 0;
+        border-right: none;
+        margin-right: 0;
+        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 12vh;
+        gap: 10px;
+    }
+    .light nav{
+        border-right: none;
+    }
+    nav ul{
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 80%;
+    }
+    nav img{
+        height: 20px;
+    }
+    nav button{
+        width: 20%;
+        font-size: 20px;
+    }
+}
