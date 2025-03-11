@@ -12,7 +12,7 @@
     object-fit: cover;
     object-position: center;
     border-radius: 15px;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 #gallery img:hover{
@@ -22,5 +22,9 @@
 @media (max-width: 700px){
     #gallery{
         margin-top: 20vh;
+    }
+    #gallery img:hover{
+        transform: scale(1);
+        opacity: 0.8;
     }
 }

@@ -20,6 +20,9 @@ export const Home = () => {
                 cleanPage(homeGallery);
                 printImages(query);
                 searchBar.value = "";
+                if (window.innerWidth <= 700) {
+                    searchBar.blur();
+                }
             };
         });
     });
