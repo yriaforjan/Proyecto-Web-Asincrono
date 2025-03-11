@@ -10,18 +10,23 @@ export const Gallery = () => {
         const images = await getImages(query);
         cleanPage(gallery);
         const ul = document.createElement("ul");
-
-        for (const image of images) {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <a href="${image.originalImage}" target="_blank">
-                <img src="${image.image}" alt="${image.alt}"/>
-            </a>
-        `;
-        ul.appendChild(li);
-        };
-
-        gallery.appendChild(ul);
+        if (images.length){
+            for (const image of images) {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <a href="${image.originalImage}" target="_blank">
+                        <img src="${image.image}" alt="${image.alt}"/>
+                    </a>
+                `;
+                ul.appendChild(li);
+            };
+            gallery.appendChild(ul);
+        } else{
+            const notFound = document.createElement("h2");
+            notFound.innerText = "Nothing here... try searching for something else?";
+            gallery.appendChild(notFound);
+        }
+        
     };
 
     printImages();

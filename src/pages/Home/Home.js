@@ -19,6 +19,7 @@ export const Home = () => {
                 const query = searchBar.value;
                 cleanPage(homeGallery);
                 printImages(query);
+                const ul = document.querySelector("ul");
                 searchBar.value = "";
                 if (window.innerWidth <= 700) {
                     searchBar.blur();
