@@ -15,7 +15,7 @@ export const Home = () => {
     document.addEventListener("DOMContentLoaded", () => {
         const searchBar = document.querySelector("#searchBar");
         searchBar.addEventListener("keyup", (ev) => {
-            if (ev.code === "Enter") {
+            if (ev.code === "Enter" || ev.code === "Search") {
                 const query = searchBar.value;
                 cleanPage(homeGallery);
                 printImages(query);
