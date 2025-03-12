@@ -11,5 +11,5 @@ export const Popular = () => {
     const main = document.querySelector("main");
     const { element: popularGallery, printImages } = Gallery();
     main.appendChild(popularGallery);
-    printImages("popular");
+    printImages("popular", (Math.floor(Math.random() * 5) + 1));
 };

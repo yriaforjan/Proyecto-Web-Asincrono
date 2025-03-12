@@ -26,7 +26,7 @@
     font-size: 30px;
 }
 
-.pageControls{
+#gallery +.pageControls{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +34,7 @@
     margin-left: 117px;
 }
 
-.pageControls button{
+#gallery +.pageControls button{
     background: none;
     border: none;
     color: var(--primary-dark);
@@ -42,7 +42,7 @@
     cursor: pointer;
 }
 
-.pageControls button:disabled{
+#gallery +.pageControls button:disabled{
     display: none;
 }
 
@@ -58,7 +58,7 @@
         padding: 20px;
         font-size: 20px;
     }
-    .pageControls{
+    #gallery +.pageControls{
         margin-left: 0;
     }
 }
