@@ -6,8 +6,8 @@ export const Gallery = () => {
     const gallery = document.querySelector("section");
     gallery.id = "gallery";
 
-    const printImages = async (query = "moon") => {
-        const images = await getImages(query);
+    const printImages = async (query = "moon", page = 1) => {
+        const images = await getImages(query, page);
         cleanPage(gallery);
         const ul = document.createElement("ul");
         if (images.length){

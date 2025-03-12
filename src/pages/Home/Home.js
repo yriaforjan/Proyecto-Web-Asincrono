@@ -14,12 +14,21 @@ export const Home = () => {
 
     document.addEventListener("DOMContentLoaded", () => {
         const searchBar = document.querySelector("#searchBar");
+        if (window.innerWidth <= 700){
+            searchBar.addEventListener("input", () => {
+                const query = searchBar.value;
+                if (query.trim().length > 0) {
+                    cleanPage(homeGallery);
+                    printImages(query);
+                }
+            });
+        }
+
         searchBar.addEventListener("keyup", (ev) => {
-            if (ev.code === "Enter" || ev.code === "Search") {
+            if (ev.code === "Enter" || ev.key === "Search") {
                 const query = searchBar.value;
                 cleanPage(homeGallery);
                 printImages(query);
-                const ul = document.querySelector("ul");
                 searchBar.value = "";
                 if (window.innerWidth <= 700) {
                     searchBar.blur();
