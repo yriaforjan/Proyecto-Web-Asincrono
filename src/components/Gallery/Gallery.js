@@ -6,7 +6,12 @@ export const Gallery = () => {
     const gallery = document.querySelector("section");
     gallery.id = "gallery";
 
+    let currentPage = 0;
+    let currentQuery = "";
+
     const printImages = async (query = "moon", page = 1) => {
+        currentQuery = query;
+        currentPage = page;
         const images = await getImages(query, page);
         cleanPage(gallery);
         const ul = document.createElement("ul");
@@ -25,8 +30,50 @@ export const Gallery = () => {
             const notFound = document.createElement("h2");
             notFound.innerText = "Nothing here... try searching for something else?";
             gallery.appendChild(notFound);
-        }
-        
+        };
+
+        createPageControls();
+    };
+
+    const createPageControls = () => {
+        if (!document.querySelector(".pageControls")){
+            const pageControls = document.createElement("div");
+            pageControls.classList.add("pageControls");
+
+            const prevBtn = document.createElement("button");
+            prevBtn.innerText = "❮";
+            prevBtn.disabled = true;
+            pageControls.appendChild(prevBtn);
+            
+            const nextBtn = document.createElement("button");
+            nextBtn.innerText = "❯";
+            pageControls.appendChild(nextBtn);
+
+            gallery.parentElement.appendChild(pageControls);
+
+            addPageControl(prevBtn, nextBtn);
+        };
+    };
+    
+    const addPageControl = (prevBtn, nextBtn) => {
+        prevBtn.addEventListener("click", () => {
+            if (currentPage > 1) {
+                currentPage--;
+                printImages(currentQuery, currentPage);
+                window.scrollTo(0, 0);
+                if (currentPage === 1) {
+                    prevBtn.disabled = true;
+                };
+            };
+        });
+        nextBtn.addEventListener("click", () => {
+            currentPage++;
+            printImages(currentQuery, currentPage);
+            window.scrollTo(0, 0);
+            if (currentPage != 1) {
+                prevBtn.disabled = false;
+            };
+        });
     };
 
     printImages();

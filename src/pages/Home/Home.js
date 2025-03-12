@@ -13,27 +13,27 @@ export const Home = () => {
     main.appendChild(homeGallery);
 
     document.addEventListener("DOMContentLoaded", () => {
-        const searchBar = document.querySelector("#searchBar");
+        searchFunction(homeGallery, printImages);
+    });
+};
+
+const searchFunction = (homeGallery, printImages) => {
+    const searchBar = document.querySelector("#searchBar");
         if (window.innerWidth <= 700){
             searchBar.addEventListener("input", () => {
-                const query = searchBar.value;
-                if (query.trim().length > 0) {
+                const currentQuery = searchBar.value.trim();
+                if (currentQuery.length > 0) {
                     cleanPage(homeGallery);
-                    printImages(query);
+                    printImages(currentQuery, 1);
                 }
             });
         }
-
         searchBar.addEventListener("keyup", (ev) => {
-            if (ev.code === "Enter" || ev.key === "Search") {
-                const query = searchBar.value;
+            if (ev.code === "Enter") {
+                const currentQuery = searchBar.value.trim();
                 cleanPage(homeGallery);
-                printImages(query);
+                printImages(currentQuery, 1);
                 searchBar.value = "";
-                if (window.innerWidth <= 700) {
-                    searchBar.blur();
-                }
             };
         });
-    });
 };

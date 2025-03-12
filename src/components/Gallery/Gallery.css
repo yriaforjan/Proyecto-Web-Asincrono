@@ -26,6 +26,26 @@
     font-size: 30px;
 }
 
+#gallery +.pageControls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-left: 117px;
+}
+
+#gallery +.pageControls button{
+    background: none;
+    border: none;
+    color: var(--primary-dark);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#gallery +.pageControls button:disabled{
+    display: none;
+}
+
 @media (max-width: 700px){
     #gallery{
         margin-top: 20vh;
