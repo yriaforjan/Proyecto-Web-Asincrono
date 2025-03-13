@@ -2,7 +2,6 @@ nav{
     width: 115px;
     min-height: 85vh;
     border-right: 1px solid var(--primary-dark);
-    margin-right: 20px;
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
@@ -62,7 +61,6 @@ nav button:hover{
         width: 100%;
         min-height: 0;
         border-right: none;
-        margin-right: 0;
         padding: 10px 20px;
         flex-direction: row;
         justify-content: space-between;

@@ -9,7 +9,8 @@ export const Popular = () => {
     cleanPage(section);
 
     const main = document.querySelector("main");
-    const { element: popularGallery, printImages } = Gallery();
+    const { element: popularGallery, printImages, createPageControls } = Gallery();
     main.appendChild(popularGallery);
+    createPageControls();
     printImages("popular", (Math.floor(Math.random() * 5) + 1));
 };
