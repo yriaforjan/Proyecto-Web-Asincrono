@@ -30,6 +30,7 @@ export const Gallery = () => {
                 ul.appendChild(li);
             };
             gallery.appendChild(ul);
+
             if (!pageControls){
                 createPageControls();
             };
@@ -37,26 +38,14 @@ export const Gallery = () => {
             const notFound = document.createElement("h2");
             notFound.innerText = "Nothing here... try searching for something else?";
             gallery.appendChild(notFound);
+
             gallery.appendChild(SuggestionBtns());
-            /* addSuggestion(); */
+
             if (pageControls){
                 pageControls.remove();
             };
         };
     };
-
-    /* const addSuggestion = () => {
-        const searchBar = document.querySelector("#searchBar");
-        const suggestionBtns = document.querySelectorAll(".suggestionBtn");
-        if (suggestionBtns){
-            for (const suggestionBtn of suggestionBtns){
-                suggestionBtn.addEventListener("click", () => {
-                    searchBar.value = suggestionBtn.innerText;
-                    searchBar.dispatchEvent(new KeyboardEvent("keyup", { key: "Enter" }))
-                });
-            };
-        };
-    }; */
 
     const createPageControls = () => {
         let pageControls = document.querySelector("#pageControls");
