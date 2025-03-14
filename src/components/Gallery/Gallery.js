@@ -27,6 +27,7 @@ export const Gallery = () => {
                 }
                 cleanPage(gallery);
                 printImages(currentQuery, 1);
+                createPageControls();
             });
         };
     };
