@@ -2,6 +2,7 @@ import "./Gallery.css";
 import { getImages } from "../../data/data";
 import { cleanPage } from "../../utils/cleanPage";
 import { SuggestionBtns } from "../SuggestionBtns/SuggestionBtns";
+import { OrientationFilter } from "../OrientationFilter/OrientationFilter";
 
 export const Gallery = () => {
     const gallery = document.querySelector("section");
@@ -9,11 +10,31 @@ export const Gallery = () => {
 
     let currentPage = 0;
     let currentQuery = "";
+    let imgOrientation = "";
+
+    if (!document.querySelector("#orientations")){
+        gallery.parentElement.insertBefore(OrientationFilter(), gallery);
+    }
+
+    const addOrientationFilter = () => {
+        const orientationRadios = document.querySelectorAll('input[name="orientation"]');
+        
+        for (const orientationRadio of orientationRadios){
+            orientationRadio.addEventListener("change", () => {
+                imgOrientation = document.querySelector('input[name="orientation"]:checked').value;
+                if (imgOrientation === "all"){
+                    imgOrientation = "";
+                }
+                cleanPage(gallery);
+                printImages(currentQuery, 1);
+            });
+        };
+    };
 
     const printImages = async (query = "moon", page = 1) => {
         currentQuery = query;
         currentPage = page;
-        const images = await getImages(query, page);
+        const images = await getImages(query, page, imgOrientation);
         const pageControls = document.querySelector("#pageControls");
 
         cleanPage(gallery);
@@ -94,6 +115,7 @@ export const Gallery = () => {
         });
     };
 
+    addOrientationFilter();
     printImages();
 
     return { element: gallery, printImages, createPageControls };

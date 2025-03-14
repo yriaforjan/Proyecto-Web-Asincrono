@@ -1,7 +1,6 @@
 import { updateSearchBar } from "../../components/Navbar/Navbar";
 import { cleanPage } from "../../utils/cleanPage";
 import { Gallery } from "../../components/Gallery/Gallery";
-import { SuggestionBtns } from "../../components/SuggestionBtns/SuggestionBtns";
 
 export const Home = () => {
     updateSearchBar(false, "Search...");
