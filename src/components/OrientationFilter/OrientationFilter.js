@@ -1,16 +1,18 @@
 import "./OrientationFilter.css";
 
 export const OrientationFilter = () => {
-    const orientations = ["landscape", "portrait", "squarish", "all"];
+    const orientations = ["all", "landscape", "portrait", "squarish"];
     const orientationContainer = document.createElement("div");
     orientationContainer.id = "orientations";
 
     const images = {
+        all: "/icons/all.png",
         landscape: "/icons/landscape.png",
         portrait: "/icons/portrait.png",
-        squarish: "/icons/squarish.png",
-        all: "/icons/all.png"
+        squarish: "/icons/squarish.png"
     };
+
+    let defaultFilter;
 
     for (const orientation of orientations){
         const label = document.createElement("label");
@@ -26,7 +28,23 @@ export const OrientationFilter = () => {
         img.alt = orientation;
         label.appendChild(img);
 
+        if (orientation === "all") {
+            img.className = "hidden";
+            defaultFilter = img;
+        }
+
         orientationContainer.appendChild(label);
     };
+
+    orientationContainer.addEventListener("change", () => {
+        if (defaultFilter){
+            defaultFilter.classList.remove("hidden");
+        };
+
+        if (orientationContainer.querySelector("input[value='all']:checked")) {
+            defaultFilter.classList.add("hidden");
+        };
+    });
+
     return orientationContainer;
 };

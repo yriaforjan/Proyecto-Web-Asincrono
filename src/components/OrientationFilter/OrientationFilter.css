@@ -18,6 +18,10 @@
     padding: 3px;
 }
 
+.hidden {
+    display: none;
+}
+
 input[name="orientation"]:checked + img {
     border: 2px solid #4D5A00;
     border-radius: 5px;
