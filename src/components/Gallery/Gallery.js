@@ -18,6 +18,11 @@ export const Gallery = () => {
 
     const addOrientationFilter = () => {
         const orientationRadios = document.querySelectorAll('input[name="orientation"]');
+    
+        const allRadio = document.querySelector('input[value="all"]');
+        if (allRadio) {
+            allRadio.checked = true;
+        };
         
         for (const orientationRadio of orientationRadios){
             orientationRadio.addEventListener("change", () => {
